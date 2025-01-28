@@ -1,0 +1,186 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.pipe {
+  width: 300px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 30px;
+  border: 5px solid #8b8b8b;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-right: -5px; /* Connects to the tank */
+}
+
+.liquid {
+  width: 30px;
+  height: 20px;
+  background-color: #00f;
+  border-radius: 15px;
+  position: absolute;
+  left: -30px;
+}
+
+.tank {
+  width: 100px;
+  height: 250px;
+  background: linear-gradient(to bottom, #bfbfbf, #e0e0e0, #bfbfbf);
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  margin-left: -25px; /* Connects to the pipe */
+  border: 5px solid #8b8b8b;
+}
+
+.tank-liquid {
+  width: 100%;
+  height: 0;
+  background-color: #00f;
+  position: absolute;
+  bottom: 0;
+  transition: height 8s linear;
+}
+
+.led {
+  width: 20px;
+  height: 20px;
+  background-color: green;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pipe-discharge {
+  width: 200px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 15px;
+  border: 3px solid #8b8b8b;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -40px;
+  overflow: hidden;
+  display: none;
+}
+
+.liquid-discharge {
+  width: 30px;
+  height: 30px;
+  background-color: #00f;
+  border-radius: 15px;
+  position: absolute;
+  left: -30px;
+}
+
+.sub-tank {
+  width: 100px;
+  height: 250px;
+  background: linear-gradient(to bottom, #bfbfbf, #e0e0e0, #bfbfbf);
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  margin-left: 1px; /* Connects to the discharge pipe */
+  border: 5px solid #8b8b8b;
+}
+
+.sub-tank-liquid {
+  width: 100%;
+  height: 0;
+  background-color: #00f;
+  position: absolute;
+  bottom: 0;
+  transition: height 4s linear;
+}
+
+button {
+  background-color: #791abc;
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  margin: 10px;
+  padding: 10px 20px;
+}
+
+#fillButton {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+#dischargeButton {
+  position: fixed;
+  bottom: 250px;
+  left: 10px;
+}
+
+#stopButton {
+  position: fixed;
+  bottom: 140px;
+  left: 10px;
+}
+
+#drainButton {
+  position: fixed;
+  bottom: 80px;
+  left: 10px;
+}
+
+@keyframes flowIn {
+  0% {
+    left: -30px;
+  }
+  100% {
+    left: 300px;
+  }
+}
+
+@keyframes flowOut {
+  0% {
+    left: 300px;
+  }
+  100% {
+    left: -30px;
+  }
+}
+
+@keyframes discharge {
+  0% {
+    left: -30px;
+  }
+  100% {
+    left: 200px;
+  }
+}
+
+.flowing {
+  animation: flowIn 4s linear infinite;
+}
+
+.reverse-flowing {
+  animation: flowOut 4s linear infinite;
+}
+
+.discharging {
+  animation: discharge 4s linear infinite;
+}
