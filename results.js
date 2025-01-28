@@ -23,21 +23,19 @@ document.getElementById("fillButton").addEventListener("click", function () {
   }, 8000); // Change color when the tank is full after 8 seconds
 });
 
-document
-  .getElementById("dischargeButton")
-  .addEventListener("click", function () {
-    const liquid = document.querySelector(".liquid");
-    liquid.classList.remove("flowing");
-    liquid.classList.add("reverse-flowing");
+document.getElementById("dischargeButton").addEventListener("click", function () {
+  const liquid = document.querySelector(".liquid");
+  liquid.classList.remove("flowing");
+  liquid.classList.add("reverse-flowing");
 
-    const tankLiquid = document.getElementById("tankLiquid");
-    tankLiquid.style.height = "0";
+  const tankLiquid = document.getElementById("tankLiquid");
+  tankLiquid.style.height = "0";
 
-    const ledLight = document.getElementById("ledLight");
-    ledLight.style.backgroundColor = "green";
+  const ledLight = document.getElementById("ledLight");
+  ledLight.style.backgroundColor = "green";
 
-    clearTimeout(fillTimeout); // Reset LED color change
-  });
+  clearTimeout(fillTimeout); // Reset LED color change
+});
 
 document.getElementById("stopButton").addEventListener("click", function () {
   const liquid = document.querySelector(".liquid");
